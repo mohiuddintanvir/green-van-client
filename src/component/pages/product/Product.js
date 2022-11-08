@@ -1,10 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import ProductsDetails from './productsDetails/ProductsDetails';
 
 const Product = () => {
+    // data call from mongo db
+    const [products, setproducts] = useState([])
+
+    useEffect(() => {
+        fetch('http://localhost:5000/services')
+            .then(res => res.json())
+            .then(data => setproducts(data))
+    }, [])
+
+
+
+
+
     return (
         <div>
-            <h1>work done</h1>
+            <h1 className=' text-center text-6xl mb-12 mt-12'>All Products</h1>
+
+            <div className='grid grid-cols-3 gap-4'>
+
+                {
+
+                    products.map(product => <ProductsDetails key={product._id} product={product}></ProductsDetails>)
+                }
+            </div>
+
+
+
         </div>
+
+
     );
 };
 
