@@ -40,7 +40,7 @@ const Login = () => {
 
                             </div>
                         </form>
-                        <p className='pb-5 text-center'>New to genious car?Please <Link className='text-blue-600 font-bold' to='/signup'>Sign up</Link></p>
+                        <p className='pb-5 text-center'>New to Green-van?Please <Link className='text-blue-600 font-bold' to='/signup'>Sign up</Link></p>
                     </div>
                 </div>
             </div>
