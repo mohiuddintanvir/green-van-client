@@ -1,13 +1,48 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/Authprovider/Authprovider';
+import { HiUserCircle } from "react-icons/hi";
 
 const Header = () => {
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(err => console.error(err))
+    }
+
+
     const manuItems = <>
         <li className='font-semibold'><Link to='/'>Home</Link></li>
-        <li className='font-semibold'><Link to='/login'>{user?.email}</Link></li>
-        <li className='font-semibold'><Link to='/signup'>Signup</Link></li>
+        <li className='font-semibold'><Link to='/product'>Products</Link></li>
+        <li className='font-semibold'>
+            {
+                user?.uid ?
+                    <>
+                        <span> {user?.displayName}</span>
+                        <button onClick={handleOut} className="btn btn-outline btn-warning">Logout</button>
+                    </>
+
+                    :
+                    <>
+                        <Link to='/login'>LogIn</Link>
+                        <Link to='/signup'>Signup</Link>
+                    </>
+
+            }
+
+
+        </li>,
+
+        <li className='font-semibold'><Link to='/signup'>{user?.photoURL ?
+
+            <img style={{ height: '30px' }} className="rounded-full" src={user.photoURL} alt="" />
+            : <HiUserCircle></HiUserCircle>
+
+        }</Link></li>
+
+        <li></li>
 
     </>
     return (

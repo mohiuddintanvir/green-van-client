@@ -1,12 +1,51 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img1 from '../../../Images/homeimg/img-2.jpg'
+import { AuthContext } from '../../Context/Authprovider/Authprovider';
+
 
 const Login = () => {
 
+
+
+    // navigate call
+
+    const navigate = useNavigate();
+
+
+    // error set
+    const [error, seterror] = useState('')
+
+    // locations
+    const location = useLocation()
+
+
+    // get location:
+    const from = location.state?.form?.pathname || '/'
+
+    // signIn section
+    const { signin } = useContext(AuthContext)
+
     const handleLogin = event => {
         event.preventDefault()
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        signin(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                form.reset();
+                seterror('');
+                navigate(from, { replace: true });
+            })
+            .catch(err => {
+
+                console.error(err)
+                seterror(err.massage);
+            })
     }
+    // signIn section end 
     return (
         <div>
             <div className="hero ">
@@ -32,16 +71,18 @@ const Login = () => {
                                 </label>
                                 <input type="text" name='password' placeholder="Type your password" className="input input-bordered" />
                                 <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                    <Link href="#" className="label-text-alt link link-hover">Forgot password?</Link>
                                 </label>
                             </div>
                             <div className="form-control mt-6">
                                 <input className="btn btn-primary" type="submit" value="Login" />
 
                             </div>
+                            <p>{error}</p>
                         </form>
                         <p className='pb-5 text-center'>New to Green-van?Please <Link className='text-blue-600 font-bold' to='/signup'>Sign up</Link></p>
                     </div>
+
                 </div>
             </div>
         </div>

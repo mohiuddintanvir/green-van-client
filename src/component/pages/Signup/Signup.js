@@ -1,21 +1,59 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { AiFillGoogleCircle } from "react-icons/ai";
 import { AuthContext } from '../../Context/Authprovider/Authprovider';
+
+
+
 const Signup = () => {
-    const { createUser } = useContext(AuthContext)
+
+    // navigate 
+    const navigate = useNavigate()
+
+
+
+    const { createUser, providerLogIn } = useContext(AuthContext)
 
     const handlesignup = event => {
         event.preventDefault()
         const form = event.target;
+        const name = form.name.value;
+        const photourl = form.photourl.value;
         const email = form.email.value;
         const password = form.password.value;
+        const check = { name, photourl, email, password }
+        console.log(check)
+
         createUser(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user)
+                console.log(user);
+                navigate('/login')
+            
+                form.reset()
             })
             .catch(err => console.error(err))
     }
+
+    // google provider make
+    const googleProvider = new GoogleAuthProvider()
+
+
+
+    // Handle Gogle Signup
+    const handleGoogleSignIn = () => {
+        providerLogIn(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+
+
+            })
+            .catch(err => console.error(err))
+    }
+
+
 
     return (
         <div className="hero ">
@@ -33,7 +71,13 @@ const Signup = () => {
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input type="text" name='name' placeholder="Enter your name" className="input input-bordered" />
+                            <input type="text" name='name' placeholder=" Your name" className="input input-bordered" />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Photo Url</span>
+                            </label>
+                            <input type="text" name='photourl' placeholder="Enter your PhotoUrl" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -54,6 +98,11 @@ const Signup = () => {
                         </div>
                     </form>
                     <p className='pb-5 text-center'>Already have an account?Please <Link className='text-blue-600 font-bold' to='/login'>Log In</Link></p>
+                    <div>
+                        <button onClick={handleGoogleSignIn} className="btn btn-square btn-outline rounded-full">
+                            <AiFillGoogleCircle />
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
