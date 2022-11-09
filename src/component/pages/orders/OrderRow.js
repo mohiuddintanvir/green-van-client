@@ -67,5 +67,5 @@ const OrderRow = ({ order, handledelete, handlestatusUpdate }) => {
         </div>
     );
 };
-// {status ? status : 'pending'}
+
 export default OrderRow;
