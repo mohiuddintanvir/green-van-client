@@ -15,7 +15,11 @@ const Header = () => {
 
     const manuItems = <>
         <li className='font-semibold'><Link to='/'>Home</Link></li>
+
+
         <li className='font-semibold'><Link to='/product'>Products</Link></li>
+        <li className='font-semibold'><Link to='/orders'>Orders</Link></li>
+
         <li className='font-semibold'>
             {
                 user?.uid ?

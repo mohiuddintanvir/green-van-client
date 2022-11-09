@@ -1,6 +1,7 @@
 import React from 'react';
 import 'react-photo-view/dist/react-photo-view.css';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
+import { Link } from 'react-router-dom';
 
 const ProductsDetails = ({ product }) => {
     console.log(product)
@@ -28,7 +29,7 @@ const ProductsDetails = ({ product }) => {
                         <p className="py-6">{service_description}</p>
 
 
-                        <button className="btn btn-primary">Get Started</button>
+                        <Link to={`/checkout/${_id}`}><button className="btn btn-primary">Get Started</button>  </Link>
                     </div>
                 </div>
             </div>
