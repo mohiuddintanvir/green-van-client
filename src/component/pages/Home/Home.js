@@ -1,4 +1,5 @@
 import React from 'react';
+import PrivateRaute from '../../routers/privaterature/PrivateRaute';
 import ProductsDetails from '../product/productsDetails/ProductsDetails';
 import About from './About/About';
 import Banner from './Banner';
@@ -10,6 +11,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <Goods></Goods>
+
             <About></About>
             <Product></Product>
 

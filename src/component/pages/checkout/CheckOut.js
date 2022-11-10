@@ -35,7 +35,7 @@ const CheckOut = () => {
         // }
 
 
-        fetch('http://localhost:5000/orders', {
+        fetch('https://green-ven-server.vercel.app/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

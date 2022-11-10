@@ -26,7 +26,10 @@ const ProductsDetails = ({ product }) => {
 
                     <div>
                         <h1 className="text-5xl font-bold">{service_name}</h1>
+
+
                         <p className="py-6">{service_description}</p>
+                        <h2 className='text-yellow-500 mb-20 font-bold'>Price:{price}Tk/KG</h2>
 
 
                         <Link to={`/checkout/${_id}`}><button className="btn btn-primary">Get Started</button>  </Link>

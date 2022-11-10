@@ -11,7 +11,7 @@ const Orders = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/orders?email=${user.email}`)
+        fetch(`https://green-ven-server.vercel.app/orders?email=${user.email}`)
             .then(res => res.json())
             .then(data => setorder(data))
 
@@ -21,7 +21,7 @@ const Orders = () => {
     // Update
 
     const handlestatusUpdate = id => {
-        fetch(`http://localhost:5000/orders/${id}`, {
+        fetch(`https://green-ven-server.vercel.app/orders/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -52,7 +52,7 @@ const Orders = () => {
     const handledelete = id => {
         const proceed = window.confirm('Are you sure you want to cancel this order')
         if (proceed) {
-            fetch(`http://localhost:5000/orders/${id}`, {
+            fetch(`https://green-ven-server.vercel.app/orders/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -98,8 +98,13 @@ const Orders = () => {
 
                         {
                             orders.map(order =>
+
+
                                 <OrderRow
+
                                     key={order._id} order={order} handledelete={handledelete} handlestatusUpdate={handlestatusUpdate}
+
+
                                 ></OrderRow>)
                         }
 

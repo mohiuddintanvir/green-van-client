@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const OrderRow = ({ order, handledelete, handlestatusUpdate }) => {
     const { _id, customer, productname, price, email, phonenumber, id, comment, status } = order;
@@ -13,7 +13,7 @@ const OrderRow = ({ order, handledelete, handlestatusUpdate }) => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/services/${id}`)
+        fetch(`https://green-ven-server.vercel.app/services/${id}`)
             .then(res => res.json())
             .then(data => setorderid(data))
     }, [id]);
@@ -29,6 +29,8 @@ const OrderRow = ({ order, handledelete, handlestatusUpdate }) => {
         <div className=''>
 
             <tr >
+
+
                 <th>
                     <label>
                         <button onClick={() => handledelete(_id)} className="btn btn-outline btn-warning">X</button>

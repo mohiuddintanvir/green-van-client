@@ -1,6 +1,8 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img1 from '../../../Images/homeimg/img-2.jpg'
+import { AiFillGoogleCircle } from "react-icons/ai";
 import { AuthContext } from '../../Context/Authprovider/Authprovider';
 
 
@@ -24,7 +26,7 @@ const Login = () => {
     const from = location.state?.form?.pathname || '/'
 
     // signIn section
-    const { signin } = useContext(AuthContext)
+    const { signin, providerLogIn } = useContext(AuthContext)
 
     const handleLogin = event => {
         event.preventDefault()
@@ -46,6 +48,26 @@ const Login = () => {
             })
     }
     // signIn section end 
+
+    // google provider make
+    const googleProvider = new GoogleAuthProvider()
+
+    // google handle
+    const handleGoogleSignIn = () => {
+        providerLogIn(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+
+
+            })
+            .catch(err => console.error(err))
+    }
+
+
+
+
+
     return (
         <div>
             <div className="hero ">
@@ -80,8 +102,14 @@ const Login = () => {
                             </div>
                             <p>{error}</p>
                         </form>
+                        <div>
+                            <button onClick={handleGoogleSignIn} className="btn btn-outline btn-warning ml-24 mb-2 ">
+                                <AiFillGoogleCircle /> Login with Google
+                            </button>
+                        </div>
                         <p className='pb-5 text-center'>New to Green-van?Please <Link className='text-blue-600 font-bold' to='/signup'>Sign up</Link></p>
                     </div>
+
 
                 </div>
             </div>

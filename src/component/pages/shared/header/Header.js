@@ -15,17 +15,25 @@ const Header = () => {
 
     const manuItems = <>
         <li className='font-semibold'><Link to='/'>Home</Link></li>
+        <li className='font-semibold'><Link to='/blog'>Blogs</Link></li>
 
 
-        <li className='font-semibold'><Link to='/product'>Products</Link></li>
-        <li className='font-semibold'><Link to='/orders'>Orders</Link></li>
+
 
         <li className='font-semibold'>
             {
                 user?.uid ?
                     <>
-                        <span> {user?.displayName}</span>
-                        <button onClick={handleOut} className="btn btn-outline btn-warning">Logout</button>
+
+
+                        <li className='font-semibold'><Link to='/product'>Products</Link></li>
+                        <li className='font-semibold'><Link to='/orders'>My Reviews</Link></li>
+                        <li className='font-semibold'><Link to='/addproduct'>Add Product</Link></li>
+
+                        <li className='font-semibold'><button onClick={handleOut} className="btn btn-outline btn-warning">Logout</button></li>
+
+
+
                     </>
 
                     :
@@ -39,7 +47,7 @@ const Header = () => {
 
         </li>,
 
-        <li className='font-semibold'><Link to='/signup'>{user?.photoURL ?
+        <li className='font-semibold tooltip mt-4' data-tip={user?.displayName}><Link to='/blog'>{user?.photoURL ?
 
             <img style={{ height: '30px' }} className="rounded-full" src={user.photoURL} alt="" />
             : <HiUserCircle></HiUserCircle>

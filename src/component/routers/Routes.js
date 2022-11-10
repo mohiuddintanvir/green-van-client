@@ -4,6 +4,8 @@ import {
     Route,
 } from "react-router-dom";
 import Main from "../layout/Main";
+import AddProduct from "../pages/Addproduct/AddProduct";
+import Blog from "../pages/Blog/Blog";
 import CheckOut from "../pages/checkout/CheckOut";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
@@ -34,6 +36,17 @@ const router = createBrowserRouter([
                 path: '/orders',
                 element: <PrivateRaute><Orders></Orders></PrivateRaute>
             },
+            {
+                path: '/addproduct',
+                element: <PrivateRaute><AddProduct></AddProduct></PrivateRaute>,
+
+
+            },
+
+            {
+                path: '/blog',
+                element: <Blog></Blog>
+            },
 
             {
                 path: '/login',
@@ -46,7 +59,7 @@ const router = createBrowserRouter([
             {
                 path: '/checkout/:id',
                 element: <CheckOut></CheckOut>,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({ params }) => fetch(`https://green-ven-server.vercel.app/services/${params.id}`)
 
             },
         ]

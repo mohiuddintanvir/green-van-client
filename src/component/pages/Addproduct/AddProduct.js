@@ -1,0 +1,78 @@
+import React from 'react';
+
+const AddProduct = () => {
+
+
+    const handleorder = event => {
+        event.preventDefault();
+        const form = event.target;
+        const Name = `${form.firstname.value}`;
+        const price = form.lastname.value
+
+        const photourl = form.phonenumber.value;
+        const discription = form.comment.value;
+        console.log(Name, price, photourl, discription)
+
+        const Addservice = {
+            service_name: Name,
+            service_image: photourl,
+            price,
+            service_description: discription
+
+        }
+
+
+        // if (phonenumber.length > 10) {
+        //     alert('phone number should be contain 10 numbers')
+        // }
+
+
+        fetch('https://green-ven-server.vercel.app/services', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(Addservice)
+        })
+
+
+
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    alert('order get successfully')
+                    form.reset()
+                }
+                console.log(data)
+            })
+            .catch(err => console.error(err))
+
+    }
+
+
+
+
+
+
+
+
+
+    return (
+        <div>
+            <form className='mr-20 mt-10 border-teal-400 mb-20 ml-20 ' onSubmit={handleorder}>
+                <h1 className='text-2xl font-bold text-white bg-black text-center pt-20'>Add New Product</h1>
+                <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 p-20 border-teal-500 bg-black '>
+                    <input name='firstname' type="text" placeholder="Product name" className="input input-ghost  w-full input-bordered " />
+                    <input name='lastname' type="text" placeholder="Price" className="input input-ghost w-full input-bordered " />
+                    <input name='phonenumber' type="text" placeholder="your photourl" className="input input-ghost w-full input-bordered  " required />
+                    <input name='email' type="text" placeholder="your email" className="input input-ghost w-full input-bordered " readOnly />
+                    <textarea name='comment' className="textarea textarea-bordered h-24 w-full " placeholder="Shere Your Review about product" required></textarea> <br />
+                    <input className='btn ' type="submit" value=" Add Product" />
+                </div>
+
+            </form>
+        </div>
+    );
+};
+
+export default AddProduct;
