@@ -12,6 +12,7 @@ import Login from "../pages/Login/Login";
 import Orders from "../pages/orders/Orders";
 import Product from "../pages/product/Product";
 import Signup from "../pages/Signup/Signup";
+import Update from "../pages/Update/Update";
 import PrivateRaute from "./privaterature/PrivateRaute";
 
 
@@ -39,6 +40,13 @@ const router = createBrowserRouter([
             {
                 path: '/addproduct',
                 element: <PrivateRaute><AddProduct></AddProduct></PrivateRaute>,
+
+
+            },
+            {
+                path: '/update/:id',
+                element: <Update></Update>,
+                loader: ({ params }) => fetch(`https://green-ven-server.vercel.app/orders/${params.id}`)
 
 
             },

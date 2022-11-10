@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const OrderRow = ({ order, handledelete, handlestatusUpdate }) => {
     const { _id, customer, productname, price, email, phonenumber, id, comment, status } = order;
@@ -62,8 +63,12 @@ const OrderRow = ({ order, handledelete, handlestatusUpdate }) => {
                     <p>{comment}</p>
                 </th>
                 <th className='pl-20'>
+                    <Link to={`/update/${_id}`}>
+                        <button onClick={() => handlestatusUpdate(_id)} className="btn btn-ghost btn-xs"> Update</button>
 
-                    <button onClick={() => handlestatusUpdate(_id)} className="btn btn-ghost btn-xs"> Update</button>
+                    </Link>
+
+
                 </th>
             </tr>
         </div>
