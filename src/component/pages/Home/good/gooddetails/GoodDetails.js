@@ -23,7 +23,7 @@ const GoodDetails = ({ product }) => {
                         <h2 className='text-yellow-500 mb-20'>Price:{price}TK/KG</h2>
 
 
-                        <Link to={`/checkout/${_id}`}><button className="btn btn-primary">View Details</button>  </Link>
+                        <Link to={`/checkout/${_id}`}><button className="btn btn-primary ">View Details</button>  </Link>
 
                     </div>
                 </div>
@@ -33,4 +33,3 @@ const GoodDetails = ({ product }) => {
 };
 
 export default GoodDetails;
-<button className="btn btn-primary">Get Started</button>

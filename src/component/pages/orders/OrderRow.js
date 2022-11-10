@@ -64,7 +64,7 @@ const OrderRow = ({ order, handledelete, handlestatusUpdate }) => {
                 </th>
                 <th className='pl-20'>
                     <Link to={`/update/${_id}`}>
-                        <button onClick={() => handlestatusUpdate(_id)} className="btn btn-ghost btn-xs"> Update</button>
+                        <button  className="btn btn-ghost btn-xs"> Update</button>
 
                     </Link>
 

@@ -24,7 +24,7 @@ const Goods = () => {
                     products.map(product => <PrivateRaute><GoodDetails key={product._id} product={product}></GoodDetails></PrivateRaute>)
                 }
             </div>
-            <Link to='/product'><button className="btn btn-outline btn-warning ml-80">Shop More</button></Link>
+            <Link to='/product'><button className="btn btn-outline btn-warning mt-20 mb-20  w-full ">Shop More</button></Link>
 
         </div>
     );

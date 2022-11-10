@@ -32,7 +32,7 @@ const ProductsDetails = ({ product }) => {
                         <h2 className='text-yellow-500 mb-20 font-bold'>Price:{price}Tk/KG</h2>
 
 
-                        <Link to={`/checkout/${_id}`}><button className="btn btn-primary">Get Started</button>  </Link>
+                        <Link to={`/checkout/${_id}`}><button className="btn btn-primary">View Details</button>  </Link>
                     </div>
                 </div>
             </div>
