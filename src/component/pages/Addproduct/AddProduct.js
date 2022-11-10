@@ -1,7 +1,8 @@
 import React from 'react';
+import Usetitle from '../../../hocks/Usetitle';
 
 const AddProduct = () => {
-
+    Usetitle('AddProduct')
 
     const handleorder = event => {
         event.preventDefault();

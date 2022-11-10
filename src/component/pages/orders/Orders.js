@@ -1,8 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
+import Usetitle from '../../../hocks/Usetitle';
 import { AuthContext } from '../../Context/Authprovider/Authprovider';
 import OrderRow from './OrderRow';
 
 const Orders = () => {
+
+    Usetitle('Reviews')
+    
     const { user } = useContext(AuthContext);
     const [orders, setorder] = useState([]);
 

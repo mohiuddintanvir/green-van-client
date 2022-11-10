@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import Usetitle from '../../../hocks/Usetitle';
 import ProductsDetails from './productsDetails/ProductsDetails';
 
 const Product = () => {
+
+    Usetitle('products')
     // data call from mongo db
     const [products, setproducts] = useState([])
 

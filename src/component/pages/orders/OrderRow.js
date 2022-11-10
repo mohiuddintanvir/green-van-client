@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Usetitle from '../../../hocks/Usetitle';
 
 const OrderRow = ({ order, handledelete, handlestatusUpdate }) => {
     const { _id, customer, productname, price, email, phonenumber, id, comment, status } = order;
@@ -20,7 +21,7 @@ const OrderRow = ({ order, handledelete, handlestatusUpdate }) => {
     }, [id]);
 
 
-
+    Usetitle('Give review')
 
 
 
@@ -64,7 +65,7 @@ const OrderRow = ({ order, handledelete, handlestatusUpdate }) => {
                 </th>
                 <th className='pl-20'>
                     <Link to={`/update/${_id}`}>
-                        <button  className="btn btn-ghost btn-xs"> Update</button>
+                        <button className="btn btn-ghost btn-xs"> Update</button>
 
                     </Link>
 

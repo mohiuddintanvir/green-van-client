@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom'
+import Usetitle from '../../../hocks/Usetitle';
 import { AuthContext } from '../../Context/Authprovider/Authprovider';
 
 const CheckOut = () => {
+    Usetitle('give review')
     const { _id, service_name, service_image, price, service_description } = useLoaderData();
     const { user } = useContext(AuthContext)
 

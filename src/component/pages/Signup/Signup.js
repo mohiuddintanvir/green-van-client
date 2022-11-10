@@ -3,10 +3,12 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { AuthContext } from '../../Context/Authprovider/Authprovider';
+import Usetitle from '../../../hocks/Usetitle';
 
 
 
 const Signup = () => {
+    Usetitle('Signup')
 
     // navigate 
     const navigate = useNavigate()
@@ -30,7 +32,7 @@ const Signup = () => {
                 const user = result.user;
                 console.log(user);
                 navigate('/login')
-            
+
                 form.reset()
             })
             .catch(err => console.error(err))

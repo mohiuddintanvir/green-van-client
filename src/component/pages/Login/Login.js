@@ -4,9 +4,12 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img1 from '../../../Images/homeimg/img-2.jpg'
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { AuthContext } from '../../Context/Authprovider/Authprovider';
+import Usetitle from '../../../hocks/Usetitle';
 
 
 const Login = () => {
+
+    Usetitle('LogIn')
 
 
 

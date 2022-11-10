@@ -1,6 +1,9 @@
 import React from 'react';
+import Usetitle from '../../../hocks/Usetitle';
 
 const Blog = () => {
+
+    Usetitle('Blog')
     return (
         <div>
             <div className="mockup-window border bg-base-300">
