@@ -43,26 +43,17 @@ const Signup = () => {
 
 
 
-    // Handle Gogle Signup
-    const handleGoogleSignIn = () => {
-        providerLogIn(googleProvider)
-            .then(result => {
-                const user = result.user;
-                console.log(user);
 
 
-            })
-            .catch(err => console.error(err))
-    }
 
 
 
     return (
-        <div className="hero ">
+        <div className="hero  mt-20 mb-20">
             <div className="hero-content grid md:grid-cols-2 flex-col lg:flex-row">
-                <div className="text-center w-3/4 lg:text-left">
+                <div className="text-center  lg:text-left">
                     <div>
-                        <img src="" alt="" />
+                        <img src="https://cdn.trendhunterstatic.com/phpthumbnails/283/283832/283832_1_800.jpeg" alt="" />
                     </div>
 
                 </div>
@@ -101,9 +92,7 @@ const Signup = () => {
                     </form>
                     <p className='pb-5 text-center'>Already have an account?Please <Link className='text-blue-600 font-bold' to='/login'>Log In</Link></p>
                     <div>
-                        <button onClick={handleGoogleSignIn} className="btn btn-square btn-outline rounded-full">
-                            <AiFillGoogleCircle />
-                        </button>
+
                     </div>
                 </div>
             </div>

@@ -9,16 +9,18 @@ const AddProduct = () => {
         const form = event.target;
         const Name = `${form.firstname.value}`;
         const price = form.lastname.value
-
+        const date = form.date.value
         const photourl = form.phonenumber.value;
         const discription = form.comment.value;
+
         console.log(Name, price, photourl, discription)
 
         const Addservice = {
             service_name: Name,
             service_image: photourl,
             price,
-            service_description: discription
+            service_description: discription,
+            service_date: date,
 
         }
 
@@ -41,7 +43,7 @@ const AddProduct = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    alert('order get successfully')
+                    alert('Product add  successfully')
                     form.reset()
                 }
                 console.log(data)
@@ -68,6 +70,9 @@ const AddProduct = () => {
                     <input name='phonenumber' type="text" placeholder="your photourl" className="input input-ghost w-full input-bordered  " required />
                     <input name='email' type="text" placeholder="your email" className="input input-ghost w-full input-bordered " readOnly />
                     <textarea name='comment' className="textarea textarea-bordered h-24 w-full " placeholder="Shere Your Review about product" required></textarea> <br />
+                    <input type="date" id="start" name="date"
+
+                        min="2022-01-01" max="2025-12-31" />
                     <input className='btn ' type="submit" value=" Add Product" />
                 </div>
 

@@ -9,7 +9,7 @@ const Product = () => {
     const [products, setproducts] = useState([])
 
     useEffect(() => {
-        fetch('https://green-ven-server.vercel.app/services')
+        fetch('https://green-ven-server.vercel.app/services?limit=100')
             .then(res => res.json())
             .then(data => setproducts(data))
     }, [])

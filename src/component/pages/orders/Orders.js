@@ -6,7 +6,7 @@ import OrderRow from './OrderRow';
 const Orders = () => {
 
     Usetitle('Reviews')
-    
+
     const { user } = useContext(AuthContext);
     const [orders, setorder] = useState([]);
 
@@ -24,27 +24,6 @@ const Orders = () => {
 
     // Update
 
-    const handlestatusUpdate = id => {
-        fetch(`https://green-ven-server.vercel.app/orders/${id}`, {
-            method: 'PATCH',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify({ status: 'Approved' })
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if (data.modifiedCount > 0) {
-                    const remaining = orders.filter(order => order._id !== id)
-                    const approving = orders.find(order => order._id === id)
-                    approving.status = 'Approved'
-                    const editreview = [...remaining, approving];
-                    setorder(editreview)
-
-                }
-            })
-    }
 
 
 
@@ -106,7 +85,7 @@ const Orders = () => {
 
                                 <OrderRow
 
-                                    key={order._id} order={order} handledelete={handledelete} handlestatusUpdate={handlestatusUpdate}
+                                    key={order._id} order={order} handledelete={handledelete}
 
 
                                 ></OrderRow>)
