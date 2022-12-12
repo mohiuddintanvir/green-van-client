@@ -10,7 +10,10 @@ import router from "./component/routers/Routes";
 function App() {
 
   return (
-    <RouterProvider router={router}></RouterProvider>
+    <div className="max-w-[1800px] justify-center">
+      <RouterProvider router={router}></RouterProvider>
+    </div>
+    
   );
 }
 

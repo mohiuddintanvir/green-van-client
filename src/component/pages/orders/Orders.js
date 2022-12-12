@@ -24,7 +24,26 @@ const Orders = () => {
 
     // Update
 
-
+// const handlestatusupdate=id=>{
+// fetch(`https://green-ven-server.vercel.app/orders/${id}`,{
+//     method:'PATCH',
+//     headers:{
+//         'content-type':'application/json'
+//     },
+//     body:JSON.stringify({status:'Updated'})
+// })
+// .then(res=>res.json())
+// .then(data=>{
+//     console.log(data)
+//     if(data.modifiedCount>0){
+//         const remaining =orders.filter(odr=>odr._id!==id)
+//         const approving=orders.find(oder=>oder._id===id)
+//         approving.status="updated"
+//         const neworders=[approving,...remaining]
+//         setorder(neworders);
+//     }
+// })
+// }
 
 
 
@@ -57,26 +76,8 @@ const Orders = () => {
 
 
 
-            <div className=" w-full">
-                <table className="table ">
-                    {/* <!-- head --> */}
-                    <thead>
-                        <tr>
-                            <th>
-                                <label>
-                                    <h2>Delete review</h2>
-
-
-                                </label>
-
-                            </th>
-                            <th>Product</th>
-                            <th>Price</th>
-                            <th>Email</th>
-
-                        </tr>
-                    </thead>
-                    <tbody className='w-screen'>
+            <div className=" w-ful grid lg:grid-cols-3">
+                
 
 
                         {
@@ -86,15 +87,15 @@ const Orders = () => {
                                 <OrderRow
 
                                     key={order._id} order={order} handledelete={handledelete}
-
+                                    // handlestatusupdate={handlestatusupdate}
 
                                 ></OrderRow>)
                         }
 
-                    </tbody>
-                </table>
-            </div>
-        </div>
+                 
+           </div>
+           </div>
+      
     );
 };
 

@@ -20,9 +20,9 @@ const Product = () => {
 
     return (
         <div>
-            <h1 className=' text-center font-bold text-6xl mb-12 mt-12'>All Products</h1>
+            <h1 className=' text-center font-bold text-6xl mb-12 mt-16'>All Products</h1>
 
-            <div className='grid grid-cols-3 gap-4'>
+            <div className='grid lg:grid-cols-3 gap-2  lg:ml-24 '>
 
                 {
 

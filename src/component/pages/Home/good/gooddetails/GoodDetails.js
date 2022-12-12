@@ -5,29 +5,28 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 const GoodDetails = ({ product }) => {
     const { _id, service_name, service_image, price, service_description } = product
     return (
-        <div>
-            <div className="hero min-h-screen  bg-base-200">
-
-                <div className="hero-content flex-col lg:flex-row">
-                    <PhotoProvider>
-                        <div className="foo">
+        <div className=''>
+<div className="card lg:w-96 glass">
+  <figure> <PhotoProvider>
+                        <div className="">
                             <PhotoView key={_id} src={service_image} >
-                                <img src={service_image} className="w-96 rounded-lg shadow-2xl" />
+                                <img src={service_image} alt="" className="w-96 h-60  rounded-lg shadow-2xl" />
                             </PhotoView>
 
                         </div>
-                    </PhotoProvider>
-                    <div>
-                        <h1 className="text-5xl font-bold">{service_name}</h1>
-                        <p className="py-6">{service_description}</p>
-                        <h2 className='text-yellow-500 mb-20'>Price:{price}TK/KG</h2>
+                    </PhotoProvider></figure>
+  <div className="card-body">
+    <h2 className="card-title text-5xl font-bold">{service_name}</h2>
+    <h2 className='text-yellow-500 '>Price:{price}TK/KG</h2>
+    <p className="lg:hidden">{service_description}</p>
+    <div className="card-actions justify-end">
+      <button className="btn btn-primary"><Link to={`/checkout/${_id}`}><button className="btn btn-primary ">View Details</button>  </Link></button>
+    </div>
+  </div>
+</div>
 
 
-                        <Link to={`/checkout/${_id}`}><button className="btn btn-primary ">View Details</button>  </Link>
-
-                    </div>
-                </div>
-            </div>
+           
         </div>
     );
 };

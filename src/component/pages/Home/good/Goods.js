@@ -17,14 +17,15 @@ const Goods = () => {
         <div>
             <h1 className='text-center text-6xl mb-12 mt-12'>All Products</h1>
 
-            <div className='grid grid-cols-3 gap-4'>
+            <div className='grid grid-cols-1  gap-4  lg:grid-cols-3 md:grid-cols-2 lg:ml-3 '>
 
                 {
 
                     products.map(product => <GoodDetails key={product._id} product={product}></GoodDetails>)
                 }
+                 
             </div>
-            <Link to='/product'><button className="btn btn-outline btn-warning mt-20 mb-20  w-full ">Shop More</button></Link>
+           <Link to='/product'><button className="btn btn-outline btn-warning mt-20 mb-20  w-full ">Shop More</button></Link>
 
         </div>
     );

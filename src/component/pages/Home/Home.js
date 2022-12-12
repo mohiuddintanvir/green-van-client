@@ -10,7 +10,7 @@ import Product from './product/Product';
 const Home = () => {
     Usetitle('Home')
     return (
-        <div>
+        <div className='lg:ml-24'>
             <Banner></Banner>
             <Goods></Goods>
 

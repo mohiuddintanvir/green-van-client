@@ -3,6 +3,7 @@ import './about.css'
 
 const About = () => {
     return (
+
         <div className="hero  bg-base-200 bg p-20">
             <div className="hero-content flex-col lg:flex-row">
                 <img className='w-80' src="https://i0.wp.com/orissadiary.com/wp-content/uploads/2022/04/Get-Back-To-Nature-1.jpeg?resize=450%2C300&ssl=1" alt="" />

@@ -39,10 +39,11 @@ const Login = () => {
         signin(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                console.log(user); 
+                 navigate(from, { replace: true },'/');
                 form.reset();
                 seterror('');
-                navigate(from, { replace: true });
+              
             })
             .catch(err => {
 
