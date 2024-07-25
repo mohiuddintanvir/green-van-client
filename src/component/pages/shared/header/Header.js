@@ -4,13 +4,15 @@ import { FaCartShopping } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 import { AuthContext } from "../../../Context/Authprovider/Authprovider";
+import Useadmin from "../../../routers/AdminRoutes/Useadmin";
 
 const Header = () => {
   const [searchOpen, setSearchOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
   const [wishlistCount, setWishlistCount] = useState(0);
   const { user, logOut } = useContext(AuthContext);
-
+  // admin status
+  const [IsAdmin, isAdminLoading] = Useadmin(user?.email);
   // wishlist
   const [value, setValue] = useState([]);
   console.log(value.length);
@@ -71,9 +73,13 @@ const Header = () => {
       </li>
       {user?.uid ? 
         <>
+        {!isAdminLoading && IsAdmin && (
           <li key="dashboard" className="hover:text-[#1ad458]">
             <Link to='/deshboard'>Dashboard</Link>
           </li>
+        )
+        }
+          
           <li key="logout" className="hover:text-[#1ad458]">
             <button onClick={handleLogOut}>LogOut</button>
           </li>
